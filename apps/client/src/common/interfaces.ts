@@ -44,7 +44,7 @@ export interface IDatosGenerales {
     codigoPostal: string;
     paisDomicilio: { label: string; value: string };
     paisInscripcion: { label: string; value: string };
-    registroCivil: { label: string; value: string };
+    registroCivil: string;
     tomo: string;
     pagina: string;
     aceptoPolitica: boolean;

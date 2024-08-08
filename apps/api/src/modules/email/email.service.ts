@@ -248,7 +248,7 @@ export class EmailService {
             <tr><td>Código Postal</td><td>${data.datosNotificacion.codigoPostal}</td></tr>
             <tr><td>País de Domicilio</td><td>${data.datosNotificacion.paisDomicilio.label}</td></tr>
             <tr><td>País de Inscripción</td><td>${data.datosNotificacion.paisInscripcion.label}</td></tr>
-            <tr><td>Registro Civil</td><td>${data.datosNotificacion.registroCivil.label}</td></tr>
+            <tr><td>Registro Civil</td><td>${data.datosNotificacion.registroCivil.registroCivil}</td></tr>
             <tr><td>Tomo</td><td>${data.datosNotificacion.tomo}</td></tr>
             <tr><td>Página</td><td>${data.datosNotificacion.pagina}</td></tr>
             <tr><td>Acepto Política</td><td>${data.datosNotificacion.aceptoPolitica ? 'Sí' : 'No'}</td></tr>

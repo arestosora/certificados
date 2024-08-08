@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from '@/common/axios'
 import Cookies from 'js-cookie';
 
 export default {
@@ -38,7 +38,7 @@ export default {
       const formData = Cookies.get('formData');
       if (formData) {
         try {
-          const response = await axios.post('http://localhost:3000/api/solicitud', JSON.parse(formData));
+          const response = await axios.post('/api/solicitud', JSON.parse(formData));
           if (response.data && response.data.message === 'Solicitud recibida') {
             alert('Solicitud enviada correctamente');
             Cookies.remove('formData');

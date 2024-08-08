@@ -42,7 +42,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import axios from 'axios';
+import axios from '@/common/axios'
 import Cookies from 'js-cookie';
 import DatosGenerales from '@/components/DatosGenerales.vue';
 import DatosSolicitante from '@/components/DatosSolicitante.vue';
@@ -164,7 +164,7 @@ export default defineComponent({
       Cookies.set('formData', JSON.stringify(allData), { expires: 1 });
 
       try {
-        const response = await axios.post('http://localhost:3000/api/stripe/checkout/pay', {
+        const response = await axios.post('/api/stripe/checkout/pay', {
           email: allData.datosSolicitante.email,
           name: allData.datosSolicitante.nombre,
           productName: 'Certificado de Nacimiento',

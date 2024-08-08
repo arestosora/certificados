@@ -1,11 +1,14 @@
 <template>
   <header class="header">
-    <div class="header__logo">
-      <img src="@/assets/logo2.png" alt="Logo" class="header__logo-img" />
-      <h1 class="header__title">Certificado Nacimiento Online</h1>
+    <div class="container">
+      <div class="header__logo">
+        <img src="@/assets/logo2.png" alt="Logo" class="header__logo-img" />
+        <h1 class="header__title">Certificado Nacimiento Online</h1>
+      </div>
     </div>
   </header>
 </template>
+
 
 <script lang="ts">
 import { defineComponent } from 'vue';
@@ -17,12 +20,18 @@ export default defineComponent({
 
 <style scoped>
 .header {
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px 0;
+}
+
+.container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
-  background-color: #f8fafc;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .header__logo {
@@ -31,14 +40,24 @@ export default defineComponent({
 }
 
 .header__logo-img {
-  height: 50px;
+  height: 60px;
+  transition: transform 0.3s ease;
+}
+
+.header__logo-img:hover {
+  transform: scale(1.1);
 }
 
 .header__title {
   margin-left: 20px;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #1d4ed8;
   font-family: 'Roboto', sans-serif;
+  transition: color 0.3s ease;
+}
+
+.header__title:hover {
+  color: #0f172a;
 }
 </style>

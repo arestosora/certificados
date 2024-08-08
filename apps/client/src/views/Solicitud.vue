@@ -1,6 +1,6 @@
 <template>
+  <HeaderComponent />
   <div class="solicitud-container">
-    <HeaderComponent />
     <h1>Solicitar un certificado de nacimiento</h1>
     <p>Solicite ahora su certificado de nacimiento para, entre otras cosas:</p>
     <ul>
@@ -32,8 +32,10 @@
 
     <div class="button-container">
       <button v-if="activeStep > 0" @click="prevStep" class="btn-prev"><i class="fas fa-arrow-left"></i> Atrás</button>
-      <button v-if="activeStep < steps.length - 1" @click="nextStep" class="btn-next">Siguiente <i class="fas fa-arrow-right"></i></button>
-      <button v-if="activeStep === steps.length - 1" @click="irAPago" class="btn-submit"><i class="fas fa-credit-card"></i> Ir a pago</button>
+      <button v-if="activeStep < steps.length - 1" @click="nextStep" class="btn-next">Siguiente <i
+          class="fas fa-arrow-right"></i></button>
+      <button v-if="activeStep === steps.length - 1" @click="irAPago" class="btn-submit"><i
+          class="fas fa-credit-card"></i> Ir a pago</button>
     </div>
   </div>
 </template>

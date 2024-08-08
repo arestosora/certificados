@@ -9,7 +9,7 @@
     </div>
   </template>
   
-  <script>
+  <script lang="ts">
   export default {
     name: 'WarningMessage',
     props: {
@@ -41,7 +41,7 @@
     align-items: center;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000; /* Asegura que la alerta esté por encima de otros elementos */
+    z-index: 1000;
     animation: fadeIn 0.5s ease-out;
   }
   

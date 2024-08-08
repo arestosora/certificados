@@ -4,28 +4,33 @@
     <p>Indique el tipo y número de copias que desea del certificado de nacimiento. Además, también es importante que indique la finalidad de la solicitud.</p>
     <div class="form-row">
       <div class="form-field">
-        <label for="tipo-certificado">Tipo certificado</label>
-        <Dropdown id="tipo-certificado" v-model="tipoCertificado" :options="tiposCertificado" optionLabel="label" placeholder="Seleccione un tipo" />
+        <label for="tipo-certificado">Tipo certificado<span class="required">*</span></label>
+        <Dropdown id="tipo-certificado" v-model="tipoCertificado" :options="tiposCertificado" optionLabel="label" placeholder="Seleccione un tipo" :class="{'is-invalid': tipoCertificadoError}" @blur="validateTipoCertificado" />
+        <span v-if="tipoCertificadoError" class="error-message">Este campo es obligatorio</span>
       </div>
       <div class="form-field">
-        <label for="numero-copias">Nº copias</label>
-        <Dropdown id="numero-copias" v-model="numeroCopias" :options="copias" optionLabel="label" placeholder="Seleccione un número" />
+        <label for="numero-copias">Nº copias<span class="required">*</span></label>
+        <Dropdown id="numero-copias" v-model="numeroCopias" :options="copias" optionLabel="label" placeholder="Seleccione un número" :class="{'is-invalid': numeroCopiasError}" @blur="validateNumeroCopias" />
+        <span v-if="numeroCopiasError" class="error-message">Este campo es obligatorio</span>
       </div>
       <div class="form-field">
-        <label for="destinatario">Destinatario</label>
-        <Dropdown id="destinatario" v-model="destinatario" :options="destinatarios" optionLabel="label" placeholder="Seleccione un destinatario" />
+        <label for="destinatario">Destinatario<span class="required">*</span></label>
+        <Dropdown id="destinatario" v-model="destinatario" :options="destinatarios" optionLabel="label" placeholder="Seleccione un destinatario" :class="{'is-invalid': destinatarioError}" @blur="validateDestinatario" />
+        <span v-if="destinatarioError" class="error-message">Este campo es obligatorio</span>
       </div>
       <div class="form-field">
-        <label for="motivo">Motivo</label>
-        <Dropdown id="motivo" v-model="motivo" :options="motivos" optionLabel="label" placeholder="Seleccione un motivo" />
+        <label for="motivo">Motivo<span class="required">*</span></label>
+        <Dropdown id="motivo" v-model="motivo" :options="motivos" optionLabel="label" placeholder="Seleccione un motivo" :class="{'is-invalid': motivoError}" @blur="validateMotivo" />
+        <span v-if="motivoError" class="error-message">Este campo es obligatorio</span>
       </div>
       <div class="form-field">
         <label for="observaciones">Observaciones</label>
         <Textarea id="observaciones" v-model="observaciones" rows="3" autoResize />
       </div>
       <div class="form-field">
-        <label for="idioma-anexo">Idioma para el anexo multilingüe</label>
-        <Dropdown id="idioma-anexo" v-model="idiomaAnexo" :options="idiomasAnexo" optionLabel="label" placeholder="Seleccione un idioma" />
+        <label for="idioma-anexo">Idioma para el anexo multilingüe<span class="required">*</span></label>
+        <Dropdown id="idioma-anexo" v-model="idiomaAnexo" :options="idiomasAnexo" optionLabel="label" placeholder="Seleccione un idioma" :class="{'is-invalid': idiomaAnexoError}" @blur="validateIdiomaAnexo" />
+        <span v-if="idiomaAnexoError" class="error-message">Este campo es obligatorio</span>
       </div>
     </div>
   </div>
@@ -53,6 +58,32 @@ export default defineComponent({
     const motivo = ref(props.modelValue?.motivo || '');
     const observaciones = ref(props.modelValue?.observaciones || '');
     const idiomaAnexo = ref(props.modelValue?.idiomaAnexo || '');
+
+    const tipoCertificadoError = ref(false);
+    const numeroCopiasError = ref(false);
+    const destinatarioError = ref(false);
+    const motivoError = ref(false);
+    const idiomaAnexoError = ref(false);
+
+    const validateTipoCertificado = () => {
+      tipoCertificadoError.value = !tipoCertificado.value;
+    };
+
+    const validateNumeroCopias = () => {
+      numeroCopiasError.value = !numeroCopias.value;
+    };
+
+    const validateDestinatario = () => {
+      destinatarioError.value = !destinatario.value;
+    };
+
+    const validateMotivo = () => {
+      motivoError.value = !motivo.value;
+    };
+
+    const validateIdiomaAnexo = () => {
+      idiomaAnexoError.value = !idiomaAnexo.value;
+    };
 
     const tiposCertificado = [
       { label: 'Certificado Literal de Nacimiento', value: 'certificado-literal' },
@@ -102,10 +133,21 @@ export default defineComponent({
       destinatarios,
       motivos,
       idiomasAnexo,
+      tipoCertificadoError,
+      numeroCopiasError,
+      destinatarioError,
+      motivoError,
+      idiomaAnexoError,
+      validateTipoCertificado,
+      validateNumeroCopias,
+      validateDestinatario,
+      validateMotivo,
+      validateIdiomaAnexo,
     };
   },
 });
 </script>
+
   <style scoped>
 @import '@/assets/css/DatosCertificados.css'
   </style>

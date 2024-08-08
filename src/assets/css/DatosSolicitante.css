@@ -36,3 +36,17 @@
     color: #666;
     margin-top: 8px;
   }
+
+  .is-invalid {
+    border: 1px solid red;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 0.8em;
+  }
+  
+  .required {
+    color: red;
+    margin-left: 5px;
+  }

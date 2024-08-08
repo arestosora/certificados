@@ -212,7 +212,12 @@ export default defineComponent({
     onMounted(async () => {
       try {
         const response = await axios.get('https://restcountries.com/v3.1/all');
-        paises.value = response.data.map((country: any) => ({ label: country.translations.spa.common, value: country.translations.spa.common }));
+        paises.value = response.data
+          .map((country: any) => ({
+            label: country.translations.spa.common,
+            value: country.translations.spa.common
+          }))
+          .sort((a: any, b: any) => a.label.localeCompare(b.label));
       } catch (error) {
         console.error('Error fetching countries:', error);
       }

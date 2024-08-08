@@ -5,12 +5,13 @@
     <div class="form-row">
       <div class="form-field">
         <label for="nombre">Nombre solicitante<span class="required">*</span></label>
-        <InputText id="nombre" v-model="nombre" :class="{'is-invalid': nombreError}" @blur="validateNombre" />
+        <InputText id="nombre" v-model="nombre" :class="{ 'is-invalid': nombreError }" @blur="validateNombre" />
         <span v-if="nombreError" class="error-message">Este campo es obligatorio</span>
       </div>
       <div class="form-field">
         <label for="primer-apellido">Primer apellido solicitante<span class="required">*</span></label>
-        <InputText id="primer-apellido" v-model="primerApellido" :class="{'is-invalid': primerApellidoError}" @blur="validatePrimerApellido" />
+        <InputText id="primer-apellido" v-model="primerApellido" :class="{ 'is-invalid': primerApellidoError }"
+          @blur="validatePrimerApellido" />
         <span v-if="primerApellidoError" class="error-message">Este campo es obligatorio</span>
       </div>
       <div class="form-field">
@@ -19,12 +20,14 @@
       </div>
       <div class="form-field">
         <label for="genero">Género<span class="required">*</span></label>
-        <Dropdown id="genero" v-model="genero" :options="generos" optionLabel="label" placeholder="Seleccione un género" :class="{'is-invalid': generoError}" @blur="validateGenero" />
+        <Dropdown id="genero" v-model="genero" :options="generos" optionLabel="label" placeholder="Seleccione un género"
+          :class="{ 'is-invalid': generoError }" @blur="validateGenero" />
         <span v-if="generoError" class="error-message">Este campo es obligatorio</span>
       </div>
       <div class="form-field">
         <label for="pais-emisor">País emisor documento<span class="required">*</span></label>
-        <Dropdown id="pais-emisor" v-model="paisEmisor" :options="paises" optionLabel="label" placeholder="Seleccione un país" :class="{'is-invalid': paisEmisorError}" @blur="validatePaisEmisor" />
+        <Dropdown id="pais-emisor" v-model="paisEmisor" :options="paises" optionLabel="label"
+          placeholder="Seleccione un país" :class="{ 'is-invalid': paisEmisorError }" @blur="validatePaisEmisor" />
         <span v-if="paisEmisorError" class="error-message">Este campo es obligatorio</span>
       </div>
       <div class="form-field">
@@ -38,31 +41,41 @@
       <div class="form-field">
         <label for="fecha-nacimiento">Fecha de nacimiento<span class="required">*</span></label>
         <div class="date-fields">
-          <Dropdown v-model="diaNacimiento" :options="dias" optionLabel="label" placeholder="Día" :class="{'is-invalid': fechaNacimientoError}" @blur="validateFechaNacimiento" />
-          <Dropdown v-model="mesNacimiento" :options="meses" optionLabel="label" placeholder="Mes" :class="{'is-invalid': fechaNacimientoError}" @blur="validateFechaNacimiento" />
-          <Dropdown v-model="anoNacimiento" :options="anos" optionLabel="label" placeholder="Año" :class="{'is-invalid': fechaNacimientoError}" @blur="validateFechaNacimiento" />
+          <Dropdown v-model="diaNacimiento" :options="dias" optionLabel="label" placeholder="Día"
+            :class="{ 'is-invalid': fechaNacimientoError }" @blur="validateFechaNacimiento" />
+          <Dropdown v-model="mesNacimiento" :options="meses" optionLabel="label" placeholder="Mes"
+            :class="{ 'is-invalid': fechaNacimientoError }" @blur="validateFechaNacimiento" />
+          <Dropdown v-model="anoNacimiento" :options="anos" optionLabel="label" placeholder="Año"
+            :class="{ 'is-invalid': fechaNacimientoError }" @blur="validateFechaNacimiento" />
         </div>
         <span v-if="fechaNacimientoError" class="error-message">Este campo es obligatorio</span>
       </div>
       <div class="form-field">
         <label for="pais-nacimiento">País de nacimiento<span class="required">*</span></label>
-        <Dropdown id="pais-nacimiento" v-model="paisNacimiento" :options="paises" optionLabel="label" placeholder="Seleccione un país" :class="{'is-invalid': paisNacimientoError}" @blur="validatePaisNacimiento" />
+        <Dropdown id="pais-nacimiento" v-model="paisNacimiento" :options="paises" optionLabel="label"
+          placeholder="Seleccione un país" :class="{ 'is-invalid': paisNacimientoError }"
+          @blur="validatePaisNacimiento" />
         <span v-if="paisNacimientoError" class="error-message">Este campo es obligatorio</span>
       </div>
       <div class="form-field">
         <label for="lugar-nacimiento">Lugar de nacimiento<span class="required">*</span></label>
-        <InputText id="lugar-nacimiento" v-model="lugarNacimiento" :class="{'is-invalid': lugarNacimientoError}" @blur="validateLugarNacimiento" />
+        <InputText id="lugar-nacimiento" v-model="lugarNacimiento" :class="{ 'is-invalid': lugarNacimientoError }"
+          @blur="validateLugarNacimiento" />
         <span v-if="lugarNacimientoError" class="error-message">Este campo es obligatorio</span>
       </div>
       <div class="form-field">
         <label for="tipo-identificacion">Tipo identificación<span class="required">*</span></label>
-        <Dropdown id="tipo-identificacion" v-model="tipoIdentificacion" :options="tiposIdentificacion" optionLabel="label" placeholder="Seleccione un tipo" :class="{'is-invalid': tipoIdentificacionError}" @blur="validateTipoIdentificacion" />
-        <small class="note">NOTA: Elija DNI sólo si tiene un número de DNI español, los números de DNI de otros países no son aplicables.</small>
+        <Dropdown id="tipo-identificacion" v-model="tipoIdentificacion" :options="tiposIdentificacion"
+          optionLabel="label" placeholder="Seleccione un tipo" :class="{ 'is-invalid': tipoIdentificacionError }"
+          @blur="validateTipoIdentificacion" />
+        <small class="note">NOTA: Elija DNI sólo si tiene un número de DNI español, los números de DNI de otros países
+          no son aplicables.</small>
         <span v-if="tipoIdentificacionError" class="error-message">Este campo es obligatorio</span>
       </div>
       <div class="form-field">
         <label for="numero-identificacion">Nº identificación<span class="required">*</span></label>
-        <InputText id="numero-identificacion" v-model="numeroIdentificacion" :class="{'is-invalid': numeroIdentificacionError}" @blur="validateNumeroIdentificacion" />
+        <InputText id="numero-identificacion" v-model="numeroIdentificacion"
+          :class="{ 'is-invalid': numeroIdentificacionError }" @blur="validateNumeroIdentificacion" />
         <span v-if="numeroIdentificacionError" class="error-message">Este campo es obligatorio</span>
       </div>
     </div>
@@ -71,12 +84,13 @@
     <div class="form-row">
       <div class="form-field">
         <label for="email">Correo electrónico<span class="required">*</span></label>
-        <InputText id="email" v-model="email" :class="{'is-invalid': emailError}" @blur="validateEmail" />
+        <InputText id="email" v-model="email" :class="{ 'is-invalid': emailError }" @blur="validateEmail" />
         <span v-if="emailError" class="error-message">Este campo es obligatorio</span>
       </div>
       <div class="form-field">
         <label for="confirm-email">Confirme su dirección de correo electrónico<span class="required">*</span></label>
-        <InputText id="confirm-email" v-model="confirmEmail" :class="{'is-invalid': confirmEmailError}" @blur="validateConfirmEmail" />
+        <InputText id="confirm-email" v-model="confirmEmail" :class="{ 'is-invalid': confirmEmailError }"
+          @blur="validateConfirmEmail" />
         <span v-if="confirmEmailError" class="error-message">Este campo es obligatorio</span>
       </div>
     </div>
@@ -205,7 +219,12 @@ export default defineComponent({
     onMounted(async () => {
       try {
         const response = await axios.get('https://restcountries.com/v3.1/all');
-        paises.value = response.data.map((country: any) => ({ label: country.translations.spa.common, value: country.translations.spa.common }));
+        paises.value = response.data
+          .map((country: any) => ({
+            label: country.translations.spa.common,
+            value: country.translations.spa.common
+          }))
+          .sort((a: any, b: any) => a.label.localeCompare(b.label));
       } catch (error) {
         console.error('Error fetching countries:', error);
       }
@@ -287,8 +306,5 @@ export default defineComponent({
 </script>
 
 <style scoped>
- @import '@/assets/css/DatosSolicitante.css'
- 
+@import '@/assets/css/DatosSolicitante.css'
 </style>
-
-  

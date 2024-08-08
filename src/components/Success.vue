@@ -41,13 +41,17 @@ export default {
           const response = await axios.post('http://localhost:3000/api/solicitud', JSON.parse(formData));
           if (response.data && response.data.message === 'Solicitud recibida') {
             alert('Solicitud enviada correctamente');
+            Cookies.remove('formData');
           } else {
+            Cookies.remove('formData');
             console.error('Error: La solicitud no fue recibida correctamente');
           }
         } catch (error) {
+          Cookies.remove('formData');
           console.error('Error al enviar la solicitud:', error);
         }
       } else {
+        Cookies.remove('formData');
         console.error('No hay datos de formulario en las cookies');
       }
     },

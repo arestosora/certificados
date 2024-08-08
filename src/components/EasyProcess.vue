@@ -10,7 +10,7 @@
         <div class="easy-process__steps">
           <div class="step">
             <div class="step__icon">
-              <i class="fas fa-keyboard"></i> <!-- Icono de introducción de datos -->
+              <i class="fas fa-keyboard"></i> 
             </div>
             <div class="step__content">
               <h3 class="step__title">Introducción de datos</h3>
@@ -23,7 +23,7 @@
           <hr class="step__divider" />
           <div class="step">
             <div class="step__icon">
-              <i class="fas fa-check-circle"></i> <!-- Icono de validación de datos -->
+              <i class="fas fa-check-circle"></i>
             </div>
             <div class="step__content">
               <h3 class="step__title">Validación de datos</h3>
@@ -35,7 +35,7 @@
           <hr class="step__divider" />
           <div class="step">
             <div class="step__icon">
-              <i class="fas fa-file-upload"></i> <!-- Icono de preparación y envío de documentos -->
+              <i class="fas fa-file-upload"></i>
             </div>
             <div class="step__content">
               <h3 class="step__title">Preparación y envío de documentos</h3>

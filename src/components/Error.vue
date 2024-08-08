@@ -1,117 +1,45 @@
 <template>
-    <div class="error-message-container">
-      <div class="error-message">
-        <i class="fas fa-times-circle"></i>
-        <h2>¡Error en la compra!</h2>
-        <p>Lo sentimos, ha ocurrido un problema con tu compra. Por favor, inténtalo de nuevo más tarde.</p>
-        <p>Redirigiendo en {{ counter }} segundos...</p>
-      </div>
+  <div class="error-message-container">
+    <div class="error-message">
+      <i class="fas fa-times-circle"></i>
+      <h2>¡Error en la compra!</h2>
+      <p>Lo sentimos, ha ocurrido un problema con tu compra. Por favor, inténtalo de nuevo más tarde.</p>
+      <p>Redirigiendo en {{ counter }} segundos...</p>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    name: 'ErrorMessage',
-    data() {
-      return {
-        counter: 10
-      };
+  </div>
+</template>
+
+<script>
+import Cookies from 'js-cookie';
+
+export default {
+  name: 'ErrorMessage',
+  data() {
+    return {
+      counter: 10
+    };
+  },
+  mounted() {
+    this.startCountdown();
+    this.deleteCookies();
+  },
+  methods: {
+    startCountdown() {
+      const interval = setInterval(() => {
+        this.counter--;
+        if (this.counter === 0) {
+          clearInterval(interval);
+          this.$router.push('/');
+        }
+      }, 1000);
     },
-    mounted() {
-      this.startCountdown();
-    },
-    methods: {
-      startCountdown() {
-        const interval = setInterval(() => {
-          this.counter--;
-          if (this.counter === 0) {
-            clearInterval(interval);
-            this.$router.push('/');
-          }
-        }, 1000);
-      }
+    deleteCookies() {
+      Cookies.remove('formData');
     }
   }
-  </script>
-  
-  <style scoped>
-  .error-message-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    animation: fadeIn 0.5s ease-out;
-  }
-  
-  .error-message {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-    background-color: #ffffff;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    animation: scaleUp 0.5s ease-out;
-  }
-  
-  .error-message i {
-    font-size: 4rem;
-    color: #dc3545;
-    margin-bottom: 20px;
-    animation: shake 0.5s;
-    animation-iteration-count: infinite;
-  }
-  
-  .error-message h2 {
-    margin: 10px 0;
-    font-size: 2rem;
-  }
-  
-  .error-message p {
-    margin: 0;
-    font-size: 1.2rem;
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes scaleUp {
-    from {
-      transform: scale(0.7);
-    }
-    to {
-      transform: scale(1);
-    }
-  }
-  
-  @keyframes shake {
-    0%, 100% {
-      transform: translateX(0);
-    }
-    25% {
-      transform: translateX(-5px);
-    }
-    50% {
-      transform: translateX(5px);
-    }
-    75% {
-      transform: translateX(-5px);
-    }
-  }
-  </style>
-  
+}
+</script>
+
+<style scoped>
+@import '@/assets/css/error.css';
+</style>

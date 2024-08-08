@@ -196,44 +196,8 @@ export default defineComponent({
   },
 });
 </script>
-  
-  <style scoped>
-  .form-container {
-    max-width: 900px;
-    margin: 0 auto;
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .form-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .form-field {
-    flex: 1;
-    min-width: 300px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .date-fields {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-  }
-  
-  label {
-    margin-bottom: 8px;
-  }
-  
-  .note {
-    font-size: 0.875em;
-    color: #666;
-    margin-top: 8px;
-  }
-  </style>
+<style scoped>
+ @import '@/assets/css/DatosSolicitante.css'
+</style>
+
   

@@ -35,6 +35,7 @@
 import { defineComponent, ref, watch } from 'vue';
 import Dropdown from 'primevue/dropdown';
 import Textarea from 'primevue/textarea';
+import { idiomasAnexo } from '@/common/idiomasAnexo';
 
 export default defineComponent({
   name: 'DatosCertificado',
@@ -74,32 +75,6 @@ export default defineComponent({
       { label: 'Otros', value: 'Otros' },
     ];
 
-    const idiomasAnexo = [
-  { label: 'Búlgaro', value: 'bulgaro' },
-  { label: 'Checo', value: 'checo' },
-  { label: 'Holandés', value: 'holandes' },
-  { label: 'Estonio', value: 'estonio' },
-  { label: 'Francés', value: 'frances' },
-  { label: 'Griego', value: 'griego' },
-  { label: 'Irlandés', value: 'irlandes' },
-  { label: 'Letón', value: 'leton' },
-  { label: 'Maltés', value: 'maltes' },
-  { label: 'Portugués', value: 'portugues' },
-  { label: 'Eslovaco', value: 'eslovaco' },
-  { label: 'Croata', value: 'croata' },
-  { label: 'Danés', value: 'danes' },
-  { label: 'Inglés', value: 'ingles' },
-  { label: 'Finlandés', value: 'finlandes' },
-  { label: 'Alemán', value: 'aleman' },
-  { label: 'Húngaro', value: 'hungaro' },
-  { label: 'Italiano', value: 'italiano' },
-  { label: 'Lituano', value: 'lituano' },
-  { label: 'Polaco', value: 'polaco' },
-  { label: 'Rumano', value: 'rumano' },
-  { label: 'Esloveno', value: 'esloveno' },
-  { label: 'Sueco', value: 'sueco' },
-];
-
     watch(
       () => ({
         tipoCertificado: tipoCertificado.value,
@@ -132,36 +107,6 @@ export default defineComponent({
 });
 </script>
   <style scoped>
-  .form-container {
-    max-width: 900px;
-    margin: 0 auto;
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .form-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .form-field {
-    flex: 1;
-    min-width: 300px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  label {
-    margin-bottom: 8px;
-  }
-  
-  .note {
-    font-size: 0.875em;
-    color: #666;
-    margin-top: 8px;
-  }
+@import '@/assets/css/DatosCertificados.css'
   </style>
   

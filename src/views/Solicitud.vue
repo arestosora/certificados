@@ -85,7 +85,7 @@ export default defineComponent({
         datosCertificado: datosCertificado.value,
         datosNotificacion: datosNotificacion.value,
       };
-      console.log('Ir a pago', JSON.stringify(allData, null, 2));
+      console.log(JSON.stringify(allData, null, 2));
     };
 
     return {
@@ -104,129 +104,5 @@ export default defineComponent({
 </script>
 
 <style scoped>
-body {
-  background-color: white;
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
-.solicitud-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
-  margin: 0 auto;
-  max-width: 1200px;
-}
-
-h1 {
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-p {
-  font-size: 1rem;
-  color: #666;
-  line-height: 1.5;
-  margin-bottom: 20px;
-}
-
-ul {
-  list-style-type: disc;
-  padding-left: 40px;
-  text-align: left;
-}
-
-li {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 10px;
-}
-
-.progress-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin-top: 40px;
-  padding: 0 10%;
-  position: relative;
-}
-
-.step {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  cursor: pointer;
-  z-index: 1;
-}
-
-.step i {
-  font-size: 24px;
-  color: #007bff;
-  margin-bottom: 10px;
-  transition: color 0.3s, background-color 0.3s;
-}
-
-.step.active i {
-  color: white;
-  background-color: #007bff;
-  border-radius: 50%;
-  padding: 5px;
-}
-
-.step.completed i {
-  color: #007bff;
-}
-
-.step p {
-  font-size: 0.9rem;
-  color: #333;
-  margin-top: 5px;
-}
-
-.bar {
-  position: absolute;
-  top: 12px;
-  left: 50%;
-  height: 4px;
-  width: calc(100% + 20px);
-  background-color: #ddd;
-  z-index: -1;
-}
-
-.bar.filled {
-  background-color: #007bff;
-}
-
-.form-container {
-  margin-top: 20px;
-  width: 100%;
-}
-
-.btn-next,
-.btn-submit {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.btn-next:hover,
-.btn-submit:hover {
-  background-color: #0056b3;
-}
-
-.btn-next i,
-.btn-submit i {
-  margin-right: 8px;
-}
+  @import '@/assets/css/Solicitud.css'
 </style>

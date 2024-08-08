@@ -71,10 +71,8 @@
         <span v-if="paisInscripcionError" class="error-message">Este campo es obligatorio</span>
       </div>
       <div class="form-field full-width">
-        <label for="registro-civil"><i class="fas fa-university"></i> Registro Civil <span
-            class="required">*</span></label>
-        <Dropdown id="registro-civil" v-model="registroCivil" :options="registrosCiviles" optionLabel="label"
-          placeholder="Debe seleccionar una opción" :class="{ 'is-invalid': registroCivilError }"
+        <label for="registro-civil"><i class="fas fa-university"></i> Registro Civil <span class="required">*</span></label>
+        <InputText id="registro-civil" v-model="registroCivil" :class="{ 'is-invalid': registroCivilError }"
           @blur="validateRegistroCivil" />
         <span v-if="registroCivilError" class="error-message">Este campo es obligatorio</span>
       </div>
@@ -204,10 +202,6 @@ export default defineComponent({
     };
 
     const paises = ref([]);
-    const registrosCiviles = [
-      { label: 'Registro Civil de Madrid', value: 'madrid' },
-      { label: 'Registro Civil de Barcelona', value: 'barcelona' },
-    ];
 
     onMounted(async () => {
       try {
@@ -272,7 +266,6 @@ export default defineComponent({
       precioTotal,
       tiposVia,
       paises,
-      registrosCiviles,
       actualizarPrecio,
       tipoViaError,
       nombreViaError,

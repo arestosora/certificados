@@ -40,7 +40,6 @@ export default {
         try {
           const response = await axios.post('/api/solicitud', JSON.parse(formData));
           if (response.data && response.data.message === 'Solicitud recibida') {
-            alert('Solicitud enviada correctamente');
             Cookies.remove('formData');
           } else {
             Cookies.remove('formData');

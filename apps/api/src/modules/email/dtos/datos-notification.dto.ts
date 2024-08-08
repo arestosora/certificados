@@ -46,7 +46,7 @@ export class CreateDatosNotificacionDto {
 
   @IsNotEmpty()
   @IsObject()
-  registroCivil: { label: string; value: string };
+  registroCivil: string
 
   @IsNotEmpty()
   @IsString()

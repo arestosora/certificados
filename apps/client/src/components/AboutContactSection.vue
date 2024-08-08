@@ -40,7 +40,7 @@
     name: 'AboutContactSection',
     methods: {
       handleSubmit() {
-        alert('Mensaje enviado');
+        
       },
     },
   });

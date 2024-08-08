@@ -32,7 +32,7 @@
   .info-section {
     width: 100%;
     padding: 60px 20px;
-    background-color: #1e3a8a; /* Fondo azul opaco */
+    background-color: #1e3a8a;
     color: #ffffff;
   }
   

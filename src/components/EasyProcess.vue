@@ -129,7 +129,7 @@
   
   .step__icon {
     font-size: 2rem;
-    color: #007bff; /* Color de los iconos de pasos */
+    color: #007bff;
   }
   
   .step__title {
@@ -177,14 +177,14 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
-    flex: 1 1 calc(33.333% - 40px); /* Ajusta el porcentaje según tus necesidades */
-    max-width: 300px; /* Ancho máximo de cada card */
+    flex: 1 1 calc(33.333% - 40px); 
+    max-width: 300px; 
   }
   
   .advantage__icon {
     font-size: 2rem;
     margin-bottom: 10px;
-    color: #007bff; /* Color de los iconos de ventajas */
+    color: #007bff; 
   }
   
   .advantage__text {

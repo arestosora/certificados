@@ -91,6 +91,7 @@
   import Dropdown from 'primevue/dropdown';
   import InputText from 'primevue/inputtext';
   import axios from 'axios';
+import { tiposVia } from '@/common/vias';
   
   export default defineComponent({
     name: 'DatosNotificacion',
@@ -122,13 +123,7 @@
       const precioBase = ref(29.39);
       const precioTotal = ref(precioBase.value);
   
-      const tiposVia = [
-        { label: 'Calle', value: 'calle' },
-        { label: 'Avenida', value: 'avenida' },
-        { label: 'Bulevar', value: 'bulevar' },
-        // Añade más tipos de vía aquí
-      ];
-  
+
       const paises = ref([]);
       const registrosCiviles = [
         { label: 'Registro Civil de Madrid', value: 'madrid' },
@@ -208,7 +203,6 @@
   </script>
 
 <style scoped>
-/* Mejorar el contenedor del formulario */
 .form-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -218,14 +212,12 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo de las filas del formulario */
 .form-row {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
 }
 
-/* Estilo de los campos del formulario */
 .form-field {
   flex: 1;
   min-width: 300px;
@@ -234,12 +226,10 @@
   margin-bottom: 20px;
 }
 
-/* Estilo de los campos de ancho completo */
 .form-field.full-width {
   flex: 0 0 100%;
 }
 
-/* Estilo de las etiquetas */
 label {
   margin-bottom: 8px;
   font-weight: 600;
@@ -253,13 +243,11 @@ label i {
   color: #007bff;
 }
 
-/* Indicador de campo obligatorio */
 .required {
   color: red;
   margin-left: 5px;
 }
 
-/* Estilo de los inputs de texto */
 input[type="text"],
 input[type="number"],
 textarea {
@@ -277,7 +265,6 @@ textarea:focus {
   outline: none;
 }
 
-/* Estilo de los dropdowns */
 .p-dropdown {
   width: 100%;
 }
@@ -293,7 +280,6 @@ textarea:focus {
   border-color: #007bff;
 }
 
-/* Estilo de los checkbox containers */
 .checkbox-container {
   display: flex;
   align-items: center;
@@ -304,7 +290,6 @@ textarea:focus {
   margin-right: 10px;
 }
 
-/* Estilo del resumen del pedido */
 .resumen-pedido {
   background-color: #f8f9fa;
   padding: 20px;
@@ -336,7 +321,6 @@ textarea:focus {
   color: #007bff;
 }
 
-/* Botón de envío */
 .btn-submit {
   display: inline-block;
   padding: 10px 20px;

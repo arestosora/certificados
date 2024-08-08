@@ -140,7 +140,7 @@
   }
   
   .faq-item__question i {
-    font-size: 1.2rem; /* Ajusta el tamaño del ícono */
+    font-size: 1.2rem; 
   }
   
   .faq-item__answer {

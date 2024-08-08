@@ -16,13 +16,8 @@
     </p>
 
     <div class="progress-bar">
-      <div 
-        class="step" 
-        v-for="(step, index) in steps" 
-        :key="index"
-        :class="{ active: index <= activeStep, completed: index < activeStep }"
-        @click="setActiveStep(index)"
-      >
+      <div class="step" v-for="(step, index) in steps" :key="index"
+        :class="{ active: index <= activeStep, completed: index < activeStep }" @click="setActiveStep(index)">
         <i :class="step.icon"></i>
         <p>{{ step.label }}</p>
         <div v-if="index < steps.length - 1" class="bar" :class="{ filled: index < activeStep }"></div>
@@ -35,9 +30,11 @@
       <DatosCertificado v-if="activeStep === 2" v-model="datosCertificado" />
       <DatosNotificacion v-if="activeStep === 3" v-model="datosNotificacion" />
     </div>
-    
-    <button v-if="activeStep < steps.length - 1" @click="nextStep" class="btn-next"><i class="fas fa-arrow-right"></i> Siguiente</button>
-    <button v-if="activeStep === steps.length - 1" @click="irAPago" class="btn-submit"><i class="fas fa-credit-card"></i> Ir a pago</button>
+
+    <button v-if="activeStep < steps.length - 1" @click="nextStep" class="btn-next"><i class="fas fa-arrow-right"></i>
+      Siguiente</button>
+    <button v-if="activeStep === steps.length - 1" @click="irAPago" class="btn-submit"><i
+        class="fas fa-credit-card"></i> Ir a pago</button>
   </div>
 </template>
 
@@ -88,7 +85,7 @@ export default defineComponent({
         datosCertificado: datosCertificado.value,
         datosNotificacion: datosNotificacion.value,
       };
-      console.log('Ir a pago', allData);
+      console.log('Ir a pago', JSON.stringify(allData, null, 2));
     };
 
     return {

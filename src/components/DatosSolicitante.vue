@@ -112,8 +112,10 @@ export default defineComponent({
 
     const paises = ref([]);
     const tiposIdentificacion = [
+      { label: 'DNI', value: 'DNI' },
       { label: 'DNI Europeo', value: 'DNI Europeo' },
-      // Añade más tipos de identificación aquí
+      { label: 'Pasaporte', value: 'Pasaporte' },
+      { label: 'NIE', value: 'NIE' },
     ];
 
     const dias = Array.from({ length: 31 }, (v, k) => ({ label: k + 1, value: k + 1 }));

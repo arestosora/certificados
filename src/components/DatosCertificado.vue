@@ -55,25 +55,50 @@ export default defineComponent({
 
     const tiposCertificado = [
       { label: 'Certificado Literal de Nacimiento', value: 'certificado-literal' },
-      // Añade más tipos de certificados aquí
+      { label: 'Certificado en Extracto de Nacimiento', value: 'certificado-extracto-nacimiento' },
+      { label: 'Certificado Plurilingüe de Nacimiento', value: 'certificado-plurilingue' },
     ];
 
     const copias = Array.from({ length: 10 }, (v, k) => ({ label: (k + 1).toString(), value: (k + 1).toString() }));
 
     const destinatarios = [
       { label: 'UE', value: 'ue' },
-      // Añade más destinatarios aquí
+      { label: 'Admin. Pública', value: 'admin-publica' },
+      { label: 'Otros', value: 'otros' },
     ];
 
     const motivos = [
       { label: 'Obtener primera vez Pasaporte', value: 'obtener-pasaporte' },
-      // Añade más motivos aquí
+      { label: 'Obtener primera vez DNI', value: 'obtener-dni' },
+      { label: 'Renovación por cambio de datos DNI/Pasaporte', value: 'renovacion-dni-pasaporte' },
+      { label: 'Otros', value: 'Otros' },
     ];
 
     const idiomasAnexo = [
-      { label: 'Rumano', value: 'rumano' },
-      // Añade más idiomas aquí
-    ];
+  { label: 'Búlgaro', value: 'bulgaro' },
+  { label: 'Checo', value: 'checo' },
+  { label: 'Holandés', value: 'holandes' },
+  { label: 'Estonio', value: 'estonio' },
+  { label: 'Francés', value: 'frances' },
+  { label: 'Griego', value: 'griego' },
+  { label: 'Irlandés', value: 'irlandes' },
+  { label: 'Letón', value: 'leton' },
+  { label: 'Maltés', value: 'maltes' },
+  { label: 'Portugués', value: 'portugues' },
+  { label: 'Eslovaco', value: 'eslovaco' },
+  { label: 'Croata', value: 'croata' },
+  { label: 'Danés', value: 'danes' },
+  { label: 'Inglés', value: 'ingles' },
+  { label: 'Finlandés', value: 'finlandes' },
+  { label: 'Alemán', value: 'aleman' },
+  { label: 'Húngaro', value: 'hungaro' },
+  { label: 'Italiano', value: 'italiano' },
+  { label: 'Lituano', value: 'lituano' },
+  { label: 'Polaco', value: 'polaco' },
+  { label: 'Rumano', value: 'rumano' },
+  { label: 'Esloveno', value: 'esloveno' },
+  { label: 'Sueco', value: 'sueco' },
+];
 
     watch(
       () => ({

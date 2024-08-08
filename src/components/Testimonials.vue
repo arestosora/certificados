@@ -91,8 +91,8 @@ export default defineComponent({
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
-  flex: 1 1 calc(33.333% - 40px); /* Ajusta el porcentaje según tus necesidades */
-  max-width: 300px; /* Ancho máximo de cada card */
+  flex: 1 1 calc(33.333% - 40px); 
+  max-width: 300px; 
 }
 
 .testimonial__name {

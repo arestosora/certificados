@@ -119,7 +119,6 @@ export default defineComponent({
   height: auto;
 }
 
-/* Media Queries for Responsiveness */
 @media (max-width: 1024px) {
   .hero {
     padding: 40px 20px;

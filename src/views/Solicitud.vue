@@ -2,9 +2,7 @@
   <div class="solicitud-container">
     <HeaderComponent />
     <h1>Solicitar un certificado de nacimiento</h1>
-    <p>
-      Solicite ahora su certificado de nacimiento para, entre otras cosas:
-    </p>
+    <p>Solicite ahora su certificado de nacimiento para, entre otras cosas:</p>
     <ul>
       <li>Obtener el primer documento nacional de identidad (DNI)</li>
       <li>Contraer matrimonio</li>
@@ -12,9 +10,7 @@
       <li>Reclamar una herencia</li>
       <li>Cobrar una pensión</li>
     </ul>
-    <p>
-      Dependiendo del Registro Civil, recibirá el certificado en un plazo medio de 5 a 15 días.
-    </p>
+    <p>Dependiendo del Registro Civil, recibirá el certificado en un plazo medio de 5 a 15 días.</p>
 
     <div class="progress-bar">
       <div class="step" v-for="(step, index) in steps" :key="index"
@@ -24,6 +20,8 @@
         <div v-if="index < steps.length - 1" class="bar" :class="{ filled: index < activeStep }"></div>
       </div>
     </div>
+
+    <WarningMessage v-if="showWarning" :message="warningMessage" @update:visible="showWarning = false" />
 
     <div class="form-container">
       <DatosGenerales v-if="activeStep === 0" v-model="datosGenerales" />
@@ -42,13 +40,14 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import axios from '@/common/axios'
+import axios from '@/common/axios';
 import Cookies from 'js-cookie';
 import DatosGenerales from '@/components/DatosGenerales.vue';
 import DatosSolicitante from '@/components/DatosSolicitante.vue';
 import DatosCertificado from '@/components/DatosCertificado.vue';
 import DatosNotificacion from '@/components/DatosNotificacion.vue';
 import HeaderComponent from '@/components/Header.vue';
+import WarningMessage from '@/components/WarningMessage.vue';
 import type { IDatosCertificado, IDatosGenerales, IDatosNotificacion, IDatosSolicitante } from '@/common/interfaces';
 
 export default defineComponent({
@@ -59,6 +58,7 @@ export default defineComponent({
     DatosCertificado,
     DatosNotificacion,
     HeaderComponent,
+    WarningMessage,
   },
   setup() {
     const steps = ref([
@@ -69,6 +69,8 @@ export default defineComponent({
     ]);
 
     const activeStep = ref(0);
+    const showWarning = ref(false);
+    const warningMessage = ref('');
 
     const datosGenerales = ref<IDatosGenerales>({ idioma: { label: '', value: '' }, persona: { label: '', value: '' } });
     const datosSolicitante = ref<IDatosSolicitante>({
@@ -143,7 +145,8 @@ export default defineComponent({
           activeStep.value += 1;
         }
       } else {
-        alert('Por favor, complete todos los campos obligatorios.');
+        warningMessage.value = 'Por favor, complete todos los campos obligatorios.';
+        showWarning.value = true;
       }
     };
 
@@ -188,6 +191,8 @@ export default defineComponent({
       datosSolicitante,
       datosCertificado,
       datosNotificacion,
+      showWarning,
+      warningMessage,
       setActiveStep,
       nextStep,
       prevStep,
@@ -196,7 +201,6 @@ export default defineComponent({
   },
 });
 </script>
-
 
 <style scoped>
 @import '@/assets/css/Solicitud.css';
